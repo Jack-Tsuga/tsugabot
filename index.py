@@ -26,16 +26,13 @@ import glob # テストデータ用
 import os
 import psycopg2
 #import sys
-import json
-import pya3rt # リクルートの文書を分類するAIのライブラリ（無料）初期値では、求人票の文章から職種を判定する
-import testjson
-import aians
-import zatsudan
+#import json
+
 
 # 軽量なウェブアプリケーションフレームワーク:Flask
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False #jason dump defaultの英文字設定をやめて、日本語表示可とする
-zd = zatsudan.Zatsudan("函大花子","函大花子","19歳")
+
 
 # 環境変数からLINE Access Tokenを設定
 LINE_CHANNEL_ACCESS_TOKEN = os.environ["LINE_CHANNEL_ACCESS_TOKEN"]
@@ -323,105 +320,12 @@ def handle_follow(event):
 
 def henji(msg):
 	JsMsg=[]
-#	f = open("temp.json", "r")
-#	f = open("quickrep.json", "r")
-
-#	JsonMsg = json.load(f)
-	"""
-	if u"ポチ" in msg :
-		henjiMsg = u"わんわん"
-	elif u"タマ" in msg :
-		henjiMsg = u"ニャーニャー"
-	else:
-		henjiMsg = u"分かりません"
-	"""
-	#print(ev, file=sys.stderr)
-	#henjiMsg=jsonify(ev)
-	#henjiMsg=ev
-	#new_from_json_dictメソッドはJSONデータをFlexMessage等各種オブジェクトに変換してくれるメソッドです
-	#FlexSendMessage.new_from_json_dict(対象のJSONデータ）とすることで、
-	#FlexSendMessage型に変換されます
-	#container_obj = FlexSendMessage.new_from_json_dict(JsonMsg)
-
-#	JsMsg = TemplateSendMessage(testjson.jsonMsg)
-
-	#最後に、push_messageメソッドを使ってPUSH送信する
-	#line_bot_api.push_message(event.source.userId, messages=container_obj)
-	#print(userId)
-	#	line_bot_api.push_message(event.source.userId, messages=TemplateSendMessage(container_obj))
-
-	"""	
-	moji = TemplateSendMessage(
-	alt_text='Buttons template',
-	template=ButtonsTemplate(
-		thumbnail_image_url='https://example.com/image.jpg',
-			title='Menu',
-			text='Please select',
-			actions=[
-				PostbackAction(
-					label='postback',
-					display_text='postback text',
-					data='action=buy&itemid=1'
-				),
-				MessageAction(
-					label='message',
-					text='message text'
-				),
-				URIAction(
-					label='uri',
-					uri='http://example.com/'
-				)
-			]
-		)
-	)
-	"""
-	
-	"""
-	jsonmoji = {
-	  "type": "template",
-	  "altText": "ボタン型テンプレートの練習",
-	  "template": {
-	    "type": "buttons",
-	    "actions": [
-	      {
-	        "type": "uri",
-	        "label": "参考になった",
-	        "uri": "https://tsugabot.herokuapp.com/"
-	      },
-	      {
-	        "type": "uri",
-	        "label": "知っていることだった",
-	        "uri": "https://liff.line.me/1654153400-yv5lR1Da"
-	      },
-	      {
-	        "type": "uri",
-	        "label": "質問内容と違う回答",
-	        "uri": "https://liff.line.me/1654153400-yv5lR1Da"
-	      }
-	    ],
-#	    "thumbnailImageUrl": "https://tsugabot.herokuapp.com/static/images/b-ken.png",
-	    "title": "回答の評価",
-	    "text": "回答について以下の評価ボタンをタップしてください。。"
-	  }
-	}
-	"""
-
-
-
-#	container_obj = TemplateSendMessage.new_from_json_dict(jsonmoji)
 	henjiMsg = ""
 	henjiMsg = henjiMsg  + "\n" + msg + "\n" + "\n１．アットホームな大学で、教職員と学生が仲良しです。\n２．先輩とも仲良くなれるのが楽しいです。\n３．海外プロジェクトに参加すると海外の友達もできます"
-#	henjiMsg = aians.answer(msg)
-
-
 
 	hmsg = TextSendMessage(text=henjiMsg)
 
-
-#	return (hmsg,container_obj)
 	return hmsg
-#	return JsMsg
-#	return henjiMsg
 
 # ---------------------------------------
 # QuickReplyButton テスト関数
