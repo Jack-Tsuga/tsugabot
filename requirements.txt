@@ -1,14 +1,1 @@
-Flask==1.1.1
-line-bot-sdk==1.15.0
-Jinja2==2.10.3
-requests==2.12.4
-psutil==5.6.3
-psycopg2==2.8.5
-Hamlish-Jinja==0.3.3
-Flask-SQLAlchemy==2.4.1
-Werkzeug==0.16.0
-pya3rt==1.1
-markupsafe==1.1.1
-itsdangerous==1.1.0
-glob2==0.7
-Pillow==8.2.0
+Flask==2.1.1
