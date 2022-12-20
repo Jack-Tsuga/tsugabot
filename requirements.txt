@@ -1,2 +1,6 @@
 Flask==2.1.1
 Jinja2==2.10.3
+requests==2.12.4
+psutil==5.6.3
+psycopg2==2.8.5
+Hamlish-Jinja==0.3.3
