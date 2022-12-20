@@ -7,4 +7,4 @@ Hamlish-Jinja==0.3.3
 Flask-SQLAlchemy==2.4.1
 Werkzeug>=2.0
 pya3rt==1.1
-markupsafe==1.1.1
+markupsafe>=2.0
