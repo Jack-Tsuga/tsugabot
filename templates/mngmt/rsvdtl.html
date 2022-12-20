@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <title>アウトレット・ケーキ＆パン</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <!--   jQuery・bootstrapライブラリ読み込み -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <link  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+ <!-- Line sdk の読み込み-->
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+</head>
+
+<body class="container"style="max-width: inherit; width:100%">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">予約内容表示</a>
+      </div>
+      <div class="collapse navbar-collapse  justify-content-end" style="float:right;" id="navbarEexample1">
+        <ul class="nav navbar-nav ">
+            <li class="nav-item active">
+                <a class="nav-link" href="/mngmt">ヘルプ<span class="sr-only">(current)</span></a>
+            </li>    
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="row" style="margin: 0 3px 0 3px;" >
+    <p>予約番号：{{rsvid}}　　ニックネーム：{{name}}様　　　{{date}}</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">商品番号</th>
+          <th scope="col">商品名</th>
+          <th scope="col">店名</th>
+          <th scope="col">単価</th>
+          <th scope="col">数量</th>
+          <th scope="col" style=" text-align: right; padding-right: 30px;">金額</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set cnt = namespace(i = 1) %}   <!--商品一覧の番号初期化-->
+        {% for item in  items %}
+        <div>
+          <tr>
+            <th scope="row">{{ cnt.i }}</th>
+            <td>{{ item.id }}</td>    <!--商品番号-->
+            <td>{{ item.name }}</td>  <!--商品名-->
+            <td>{{ item.shopname}}</td>   <!--店名-->
+            <td>{{ item.price}}</td>      <!--単価-->
+            <td>{{ item.quantity}}</td>   <!--数量-->
+            <td style=" text-align: right; padding-right: 30px;">{{ item.total }} </td>    <!--金額-->
+          </tr>
+          {% set cnt.i = cnt.i + 1 %}
+      </div>
+	    {% endfor %}
+      </tbody>
+    </table>
+
+    <h3 class="text-right" style=" text-align: right;">合計：{{ '{:,}'.format(GrandTotal) }}円</h3>
+
+  </div>
+  <form action="/mngmt/rsvdtl_resp" method="get">
+    <div class="mb-3">
+            <input type="hidden"  id="rsv-id" name="rsvid" value="{{rsvid}}">
+    </div>
+
+    <div class="modal-footer">
+      <a href="/mngmt" type="button" class="btn btn-secondary" />戻る</a>
+      <button type="submit" class="btn btn-warning" name="command" value="2">予約取り消し</button>
+      <button type="submit" class="btn btn-primary" name="command" value="1">商品引渡し完了</button>
+    </div>
+  </form>
+</body>
+
+</html>

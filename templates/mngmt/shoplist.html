@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="店舗一覧">
+    <meta name="robots" content="noindex, nofollow">
+    <title>店舗一覧</title>
+
+        <!--   jQuery・bootstrapライブラリ読み込み -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> 
+          <link  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+      <!--  独自ライブラリ読み込み -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.min.js" ></script>
+      <!--  /独自ライブラリ読み込み -->
+ 
+  
+      <style type="text/css">
+        
+      </style>
+
+
+  </head>
+  <body>
+     <div style="padding:30px;">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">店舗一覧・編集</a>
+          </div>
+          
+          <div class="collapse navbar-collapse " style="float:right;" id="navbarEexample1">
+            <ul class="nav navbar-nav ">
+              
+              <li class="active "><a href="#" id="Newshop" >
+                新規店舗登録
+              </a></li>
+              <li ><a href="/mngmt">トップ</a></li>
+              <li><a href="#">設定</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <table id="grid-basic" class="table table-condensed table-hover table-striped"> 
+
+      <thead>
+        <tr>
+        <th data-column-id="i" data-type="numeric" scope="col" data-order="asc">No.</th>
+        <th data-column-id="id" data-formatter="link">店舗ID</th>
+          <th data-column-id="name">店舗名</th>
+          <th data-column-id="yomi" >読み</th>
+          <th data-column-id="staff" >担当者</th>
+          <th data-column-id="tel" >電話</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set cnt = namespace(i = 1) %}   <!--一覧の番号初期化-->
+        {% for item in  shops %}
+        <div>
+          <tr class="ShopData">
+            <td scope="row">{{ cnt.i }}</td> 
+            <td >{{ item.id }}</td>    <!--店ID-->
+            <td>{{ item.name }}</td>  <!--店名-->
+            <td>{{ item.yomi}}</td>   <!--店読み-->
+            <td>{{ item.staff}}</td>      <!--担当者-->
+            <td>{{ item.tel}}</td>   <!--電話-->
+          </tr>
+          {% set cnt.i = cnt.i + 1 %}
+        </div>
+      {% endfor %}
+
+      </tbody>
+      </table>
+
+      <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="EditModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+              <h5 class="modal-title" id="Edit-title" >店情報入力・編集</h5>
+            </div>
+            <div class="modal-body" >
+              <form action="/mngmt/shop_resp" method="get">
+                <div class="mb-3">
+                  <label for="Edit-id" class="col-form-label">店舗情報を入力してください:</label>
+                  <input type="hidden" class="form-control input-lg" id="Edit-command" name="command"  value="" >
+                  <input type="hidden" class="form-control input-lg" id="Edit-id" name="id"  value="" >
+                  <div class="input-group mb-3 form-group">
+                    <label class="input-group-text"  style="width:200px;">店舗名</label>
+                    <input type="text" class="form-control input-lg" id="Edit-name"  name="name"  value="" placeholder="○○洋菓子店"> 
+                  </div> 
+                  <div class="input-group mb-3  form-group">
+                    <label class="input-group-text" style="width:200px;" >よみ</label>
+                    <input type="text" class="form-control input-lg" id="Edit-yomi"   name="yomi"  value=""  placeholder="まるまるようがしてん">
+                  </div> 
+                  <div class="input-group mb-3  form-group">
+                    <label class="input-group-text"  style="width:200px;">担当者</label>
+                    <input type="text" class="form-control input-lg" id="Edit-staff"   name="staff"  value=""  placeholder="函大花子" >
+                  </div>
+                  <div class="input-group mb-3  form-group">
+                    <label class="input-group-text"  style="width:200px;">電話</label>
+                    <input type="text" class="form-control input-lg" id="Edit-tel"   name="tel"  value="" placeholder="0138-57-0000" >
+                  </div>
+                </div>
+  
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+                  <button type="submit" class="btn btn-primary">登録・更新</button>
+
+                </div>
+                <div class="modal-footer btn-delete">
+                  <button id="Delete" type="submit" class="btn btn-danger">削除</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% raw %}
+    <script>
+
+      var grid = $("#grid-basic").bootgrid({
+        labels: {
+            noResults: "検索結果 0件",
+            infos: "全 {{ctx.total}}件中 / {{ctx.start}}～{{ctx.end}}まで表示"            
+        } 
+        ,
+        formatters: {
+            "link": function(column, row)
+            { // 店舗idの列を編集ダイアログ（モーダル）を起動するためのリンクを設定する。data-row-xxxxで行内の各データをクリックしたときに得られるようにセットしている
+                return "<a  href='#' class='Edit ' data-row-id='" + row.id + "' data-row-name='" + row.name + "' data-row-yomi='" + row.yomi + "' data-row-staff='" + row.staff + "' data-row-tel='" + row.tel + "' ' >"  + row.id + "</a>";
+            }
+        }  
+      }).on("loaded.rs.jquery.bootgrid", function() {
+          grid.find(".Edit").on("click", function(e){
+            // モーダルダイアログのinputタグに現状のデータをセットする 
+            $("#Edit-title").html("店舗情報編集"); 
+            $("#Edit-command").val("2"); //  コマンドを編集とする
+            $("#Edit-id").val($(this).data("row-id"));
+            $("#Edit-name").val($(this).data("row-name"));
+            $("#Edit-yomi").val($(this).data("row-yomi"));
+            $("#Edit-staff").val($(this).data("row-staff"));
+            $("#Edit-tel").val($(this).data("row-tel"));
+            $(".btn-delete").css("display", "block"); // 編集なので、削除ボタンを表示する
+            $('#EditModal').modal();  // モーダルダイアログ（編集画面）を起動する
+                
+            //  alert("You pressed edit on row: "+$(this).data("row-id")+ $(this).data("row-name")+ $(this).data("row-yomi")+ $(this).data("row-staff")+ $(this).data("row-tel"));
+      });
+
+    $('#Newshop').click(function() { 
+      // モーダルダイアログのinputタグにのデータをクリアあする 
+      $("#Edit-command").val("1"); //  コマンドを新規登録とする
+      $("#Edit-title").html("新規店舗登録"); 
+      $("#Edit-id").val("-1");
+      $("#Edit-name").val("");
+      $("#Edit-yomi").val("");
+      $("#Edit-staff").val("");
+      $("#Edit-tel").val("");
+      $(".btn-delete").css("display", "none"); // 新規なので、削除ボタンを非表示にする
+      $('#EditModal').modal();  // モーダルダイアログ（新規登録画面）を起動する
+    });
+ 
+    }); 
+    $(function(){
+      $("#Delete").on("click", function(){
+          if(window.confirm('ほんとうに削除しますか？','location=no')) {
+              $("#Edit-command").val("99"); //  コマンドを削除とする
+              $("#Edit-name").val("");  // 店舗ID以外は、""とし、削除を示す（削除は、店舗IDで検索し削除）
+              $("#Edit-yomi").val("");
+              $("#Edit-staff").val("");
+              $("#Edit-tel").val("");
+              return true;
+          } else {
+              return false;
+          }
+      });
+});
+    </script>
+    {% endraw %}
+
+  </body>
+</html>
