@@ -9,3 +9,4 @@ Werkzeug>=2.0
 pya3rt==1.1
 markupsafe>=2.0
 itsdangerous>=2.0
+glob2==0.7
