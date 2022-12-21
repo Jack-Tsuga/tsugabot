@@ -17,8 +17,8 @@ from linebot.models import (
 import base64
 from io import BytesIO
 from PIL import Image
-#from hamlish_jinja import HamlishExtension
-#from werkzeug import ImmutableDict
+from hamlish_jinja import HamlishExtension
+from werkzeug import ImmutableDict
 from flask_sqlalchemy import SQLAlchemy
 
 import glob # テストデータ用
@@ -290,7 +290,7 @@ def read_db():
 	msg = ""
 	for i in cur:
 
-		msg = msg + "<tr><td>"+str(i[0])+"</td><td>"+i[1]+"</td></tr>"
+		msg = msg + "<tr><td>"+str(i[1])+"</td><td>"+i[2]+"</td></tr>"
 
 	kotae = msg
 	return render_template("testdb.html",kotae=kotae)
