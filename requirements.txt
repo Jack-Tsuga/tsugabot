@@ -11,4 +11,4 @@ markupsafe>=2.0
 itsdangerous>=2.0
 glob2==0.7
 Pillow==8.2.0
-line-bot-sdk==1.15.0
+line-bot-sdk==2.2.1
