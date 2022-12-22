@@ -47,7 +47,7 @@ def index():
 	moji = u"こんにちは、ビ研です"
 
 	return "<h1>Tsugabot Home test1</h1>"
-
+"""""
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -342,7 +342,7 @@ def qRepBtn():
     return msg
 
 # ----------------------------------------
-
+"""
 if __name__ == "__main__":
     port = int(os.getenv("PORT"))
     app.run(host="0.0.0.0", port=port,debug=True)
