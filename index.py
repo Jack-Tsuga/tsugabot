@@ -20,7 +20,7 @@ from io import BytesIO
 from PIL import Image
 #from hamlish_jinja import HamlishExtension
 #from werkzeug import ImmutableDict
-from werkzeug import ImmutableDict
+
 from flask_sqlalchemy import SQLAlchemy
 
 import glob # テストデータ用
@@ -42,13 +42,13 @@ LINE_CHANNEL_ACCESS_TOKEN = os.environ["LINE_CHANNEL_ACCESS_TOKEN"]
 LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(LINE_CHANNEL_SECRET)
+#handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
 @app.route("/")
 def index():
 	moji = u"こんにちは、ビ研です"
 
-	return "<h1>Tsugabot Home test2222222</h1>"
+	return "<h1>Tsugabot Home test cut handler</h1>"
 """""
 @app.route("/callback", methods=['POST'])
 def callback():
