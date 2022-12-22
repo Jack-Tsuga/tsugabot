@@ -14,6 +14,7 @@ from linebot.models import (
     ButtonsTemplate, PostbackTemplateAction, MessageTemplateAction, URITemplateAction, FlexSendMessage, PostbackAction,
     MessageAction, URIAction, QuickReplyButton, QuickReply
 )
+'''
 import base64
 from io import BytesIO
 from PIL import Image
@@ -22,7 +23,7 @@ from PIL import Image
 from flask_sqlalchemy import SQLAlchemy
 
 import glob # テストデータ用
-'''
+
 import os
 import psycopg2
 #import sys
