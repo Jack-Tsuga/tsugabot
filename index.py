@@ -65,26 +65,26 @@ def callback():
 
     return 'OK'
 
-@app.route("/custmr", methods=['GET'])
+@app.route("/custmr")
 def custmr():
 	moji = u"こんにちは、ビ研です"
 
 	return render_template("/custmr/index.html",moji=moji)
 
 
-@app.route("/auth", methods=['GET'])
+@app.route("/auth")
 def auth():
 	moji = u"Loginしてください"
 
 	return render_template("/auth/index.html",moji=moji)
 
-@app.route("/mngmt", methods=['GET'])
+@app.route("/mngmt")
 def mngmt():
 	moji = u"こんにちは、ビ研です"
 
 	return render_template("/mngmt/index.html",moji=moji)
 
-@app.route("/mngmt/rsvlist", methods=['GET'])
+@app.route("/mngmt/rsvlist")
 def rsvlist():
 	moji = u"こんにちは、ビ研です"
 
@@ -140,7 +140,7 @@ def rsvdtl_resp():
 
 	return render_template("/mngmt/rsvdtl_resp.html",rsvid=id,name=name,date=rsvdate,command=cmd)
 
-@app.route("/mngmt/shoplist", methods=['GET'])
+@app.route("/mngmt/shoplist")
 def shoplist():
 	
 		# テストデータ
@@ -185,7 +185,7 @@ def shop_resp():
 
 	return render_template("/mngmt/shop_resp.html",rsvid=id,status=status)
 
-@app.route("/mngmt/itemlist", methods=['GET'])
+@app.route("/mngmt/itemlist")
 def itemlist():
 	# テスト画像データ（本来は、データベースから読み込む
 	files = glob.glob("static/custmr/images/*.jpg")
@@ -272,7 +272,7 @@ def test():
 
 	return render_template("test.html",moji1=msg1,moji2=msg2,kotae=kotae)
 
-@app.route("/read_db", methods=['GET'])
+@app.route("/read_db")
 def read_db():
 	dsn = os.environ.get('DATABASE_URL')
 	conn = psycopg2.connect(dsn)
