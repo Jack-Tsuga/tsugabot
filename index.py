@@ -49,7 +49,7 @@ def index():
 	moji = u"こんにちは、ビ研です"
 
 	return "<h1>Tsugabot Home test cut handler</h1>"
-"""""
+
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -61,12 +61,12 @@ def callback():
 
     # handle webhook body
     try:
-        handler.handle(body, signature)
+        handle.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
 
     return 'OK'
-
+""""
 @app.route("/custmr")
 def custmr():
 	moji = u"こんにちは、ビ研です"
