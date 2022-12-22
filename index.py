@@ -2,7 +2,7 @@
 # インポートするライブラリ
 from datetime import datetime
 from flask import Flask, request, abort, render_template, g,jsonify
-'''
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -14,7 +14,7 @@ from linebot.models import (
     ButtonsTemplate, PostbackTemplateAction, MessageTemplateAction, URITemplateAction, FlexSendMessage, PostbackAction,
     MessageAction, URIAction, QuickReplyButton, QuickReply
 )
-'''
+
 import base64
 from io import BytesIO
 from PIL import Image
@@ -47,7 +47,7 @@ LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 def index():
 	moji = u"こんにちは、ビ研です"
 
-	return "<h1>Tsugabot Home test1</h1>"
+	return "<h1>Tsugabot Home test2222222</h1>"
 """""
 @app.route("/callback", methods=['POST'])
 def callback():
