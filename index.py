@@ -14,12 +14,13 @@ from linebot.models import (
     ButtonsTemplate, PostbackTemplateAction, MessageTemplateAction, URITemplateAction, FlexSendMessage, PostbackAction,
     MessageAction, URIAction, QuickReplyButton, QuickReply
 )
-from http.server import BaseHTTPRequestHandler, HTTPServer
+
 import base64
 from io import BytesIO
 from PIL import Image
 #from hamlish_jinja import HamlishExtension
 #from werkzeug import ImmutableDict
+from werkzeug import ImmutableDict
 from flask_sqlalchemy import SQLAlchemy
 
 import glob # テストデータ用
