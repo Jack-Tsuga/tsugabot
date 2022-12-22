@@ -66,7 +66,7 @@ def callback():
         abort(400)
 
     return 'OK'
-""""
+
 @app.route("/custmr")
 def custmr():
 	moji = u"こんにちは、ビ研です"
@@ -299,7 +299,7 @@ def read_db():
 #	return jsonify(res)
 
 # MessageEvent
-@handler.add(MessageEvent, message=TextMessage)
+@handle.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 	line_bot_api.reply_message(
         event.reply_token,
@@ -310,7 +310,7 @@ def handle_message(event):
 	)
 
 # フォローイベントの場合の処理
-@handler.add(FollowEvent)
+@handle.add(FollowEvent)
 def handle_follow(event):
     line_bot_api.reply_message(
         event.reply_token,
@@ -344,7 +344,7 @@ def qRepBtn():
     return msg
 
 # ----------------------------------------
-"""
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT"))
     app.run(host="0.0.0.0", port=port,debug=True)
