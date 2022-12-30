@@ -1,4 +1,89 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <p>test</p>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>LIFF Starter 頑張りたいです</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+		<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+		<script type="text/javascript">
+
+		document.addEventListener("DOMContentLoaded", () => {
+      liff
+        .init({
+          liffId: '1654153400-yv5lR1Da'
+        })
+        .then(() => {
+          document.getElementById('go').addEventListener('click', () => {
+            document.getElementById('log').value =
+              '○言語設定\n' +
+              'liff.getLanguage()=' + liff.getLanguage() + '\n' +
+              '○LIFF SDKのバージョン\n' +
+              'liff.getVersion()=' + liff.getVersion() + '\n' +
+              '○LINE内ブラウザで動作させているかどうか\n' +
+              'liff.isInClient()=' + liff.isInClient() + '\n' +
+              '○ログインしているかどうか\n' +
+              'liff.isLoggedIn()=' + liff.isLoggedIn() + '\n' +
+              '○OS\n' +
+              'liff.getOS()=' + liff.getOS() + '\n' +
+              '○アクセストークン\n' +
+              'liff.getAccessToken()=' + liff.getAccessToken() + '\n' +
+              '○画面（1対1のチャット、グループ、またはトークルーム）を一意に識別する値\n' +
+              'liff.getContext()=' + JSON.stringify(liff.getContext()) + '\n' +
+              '○ユーザー名等\n' +
+              'liff.getDecodedIDToken()=' + JSON.stringify(liff.getDecodedIDToken()) + '\n';
+          });
+        })
+        .catch((err) =>{
+          document.getElementById('log').value = 'init ng\n' + err;
+        });
+    });
+
+
+
+	//		document.addEventListener("DOMContentLoaded", function() {
+
+	//	  console.log(window.location.href);
+		  //document.write(window.location.href);
+		  // https://example.com/?liff.state=path#access_token=xxx&context_token=xxx&feature_token=xxx&id_token=xxx&client_id=xxx
+
+	/*	  liff.init({liffId: myLiffId}).then(() => {
+			console.log(window.location.href);
+			document.write(window.location.href);
+			// https://example.com/?liff.state=path
+		  });
+
+		});
+		*/
+	</script>
+	</head>
+
+	<body>
+		<script>
+			document.write("{{ url_for('static', filename='style.css') }}");
+		</script>
+	<h1>ゼミのメンバー</h1>
+	<div>
+	<h3>環境やトークルームの情報を取得</h3>
+	<input type="button" id="go" value="実行"/>
+	<textarea id="log" style="width:96%;height:350px;"></textarea>
+	</div>
+
+	<img src="/static/images/b-ken.png" style="width: 50px;height: 50px;"/>
+	<p>釜澤、<br/>若沢</p>
+	<h2>メッセージ：{{moji}}</h2>
+	<form action="/test" method="POST">
+
+		<input type="text" name="msg1" value="12">
+		<input type="text" name="msg2" value="23">
+  		<input type="submit" value="OK">
+	</form>
+
+	<h1>test database</h1>
+	<ul>
+		<li><a href="read_db">Read my database</a></li>
+		<li><a href="insert_db">Insert my database</a></li>
+
+	</body>
+
 </html>
