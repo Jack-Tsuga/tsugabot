@@ -33,6 +33,13 @@
               '○ユーザー名等\n' +
               'liff.getDecodedIDToken()=' + JSON.stringify(liff.getDecodedIDToken()) + '\n';
           });
+		  liff.getFriendship().then(function(data) {
+              document.getElementById('log').value += 'liff.getFriendship()=' + JSON.stringify(data) + '\n';
+            }).catch(function(error) {
+              document.getElementById('log').value += 'getFriendship ng\n';
+            });
+          
+		  
         })
         .catch((err) =>{
           document.getElementById('log').value = 'init ng\n' + err;
