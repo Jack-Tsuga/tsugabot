@@ -32,13 +32,17 @@
               'liff.getContext()=' + JSON.stringify(liff.getContext()) + '\n' +
               '○ユーザー名等\n' +
               'liff.getDecodedIDToken()=' + JSON.stringify(liff.getDecodedIDToken()) + '\n';
-          });
-		  liff.getFriendship().then(function(data) {
+
+
+			  liff.getFriendship().then(function(data) {
               document.getElementById('log').value += 'liff.getFriendship()=' + JSON.stringify(data) + '\n';
-            }).catch(function(error) {
+            
+			}).catch(function(error) {
               document.getElementById('log').value += 'getFriendship ng\n';
             });
           
+          });
+		
 		  
         })
         .catch((err) =>{
