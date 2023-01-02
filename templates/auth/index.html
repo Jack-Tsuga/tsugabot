@@ -32,21 +32,7 @@
               'liff.getContext()=' + JSON.stringify(liff.getContext()) + '\n' +
               '○ユーザー名等\n' +
               'liff.getDecodedIDToken()=' + JSON.stringify(liff.getDecodedIDToken()) + '\n';
-			});
-			 // 'line ID(friendShip)='+liff.getFriendship();			  ;
-
-
-/*
-			  liff.getFriendship().then(function(data) {
-              document.getElementById('log').value += 'liff.getFriendship()=' + JSON.stringify(data) + '\n';
-
-			}).catch(function(error) {
-              document.getElementById('log').value += 'getFriendship ng\n';
-            });
-*/
-
-		
-		  
+          });
         })
         .catch((err) =>{
           document.getElementById('log').value = 'init ng\n' + err;
