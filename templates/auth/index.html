@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             liff.getFriendship().then(function(data) {
               document.getElementById('log').value += 'liff.getFriendship()=' + JSON.stringify(data) + '\n';
             }).catch(function(error) {
-              document.getElementById('log').value += 'getFriendship ng\n' + error;
+              document.getElementById('log').value += 'getFriendship ng\n' + JSON.stringify(error) ;
             });
           });
         })
