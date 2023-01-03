@@ -11,14 +11,14 @@
 document.addEventListener("DOMContentLoaded", () => {
       liff
         .init({
-          liffId: '1654153400-yv5lR1DaX'
+          liffId: '1654153400-yv5lR1Da'
         })
         .then(() => {
           document.getElementById('go').addEventListener('click', () => {
-            liff.getFriendship().then(function(data) {
-              document.getElementById('log').value += 'liff.getFriendship()=' + JSON.stringify(data) + '\n';
+            liff.getProfile().then(function(profile) {
+              document.getElementById('log').value += 'liff.getProfile()=' + JSON.stringify(profile) + '\n';
             }).catch(function(error) {
-              document.getElementById('log').value += 'getFriendship ng\n' + JSON.stringify(error) ;
+              document.getElementById('log').value += 'getProfile ng\n' + JSON.stringify(error);
             });
           });
         })
