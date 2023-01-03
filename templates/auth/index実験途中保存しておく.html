@@ -8,27 +8,43 @@
 		<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 		<script type="text/javascript">
 
-document.addEventListener("DOMContentLoaded", () => {
+		document.addEventListener("DOMContentLoaded", () => {
       liff
         .init({
           liffId: '1654153400-yv5lR1Da'
         })
         .then(() => {
           document.getElementById('go').addEventListener('click', () => {
-            liff.getFriendship().then(function(data) {
-              document.getElementById('log').value += 'liff.getFriendship()=' + JSON.stringify(data) + '\n';
-            }).catch(function(error) {
-              document.getElementById('log').value += 'getFriendship ng\n';
-            });
+            document.getElementById('log').value =
+              '○言語設定\n' +
+              'liff.getLanguage()=' + liff.getLanguage() + '\n' +
+              '○LIFF SDKのバージョン\n' +
+              'liff.getVersion()=' + liff.getVersion() + '\n' +
+              '○LINE内ブラウザで動作させているかどうか\n' +
+              'liff.isInClient()=' + liff.isInClient() + '\n' +
+              '○ログインしているかどうか\n' +
+              'liff.isLoggedIn()=' + liff.isLoggedIn() + '\n' +
+              '○OS\n' +
+              'liff.getOS()=' + liff.getOS() + '\n' +
+              '○アクセストークン\n' +
+              'liff.getAccessToken()=' + liff.getAccessToken() + '\n' +
+              '○画面（1対1のチャット、グループ、またはトークルーム）を一意に識別する値\n' +
+              'liff.getContext()=' + JSON.stringify(liff.getContext()) + '\n' +
+              '○ユーザー名等\n' +
+              'liff.getDecodedIDToken()=' + JSON.stringify(liff.getDecodedIDToken()) + '\n' ;
+
+			  liff.getFriendship().then(function(data) {
+              		document.getElementById('log').value += 'liff.getFriendship()=' + JSON.stringify(data) + '\n';
+            	}).catch(function(error) {
+              		document.getElementById('log').value += 'getFriendship ng\n';
+            	});
+
           });
         })
-        .catch((err) => {
+        .catch((err) =>{
           document.getElementById('log').value = 'init ng\n' + err;
         });
     });
-
-
-	
 
 
 
