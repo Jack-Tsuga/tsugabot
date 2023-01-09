@@ -24,6 +24,12 @@
   </style>
 
 <script type="text/javascript">
+  var liff_isInClient;
+  var liff_isLoggedIn;
+  var liff_getAccessToken;
+  var liff_getDecodedIDToken;
+  var liff_getProfile;
+
 	document.addEventListener("DOMContentLoaded", () => {
     liff
       .init({
@@ -32,16 +38,16 @@
       .then(() => {
       //  document.getElementById('go').addEventListener('click', () => {
            
-          var liff_isInClient =liff.isInClient();   //LINE内ブラウザで動作させているかどうか
+          liff_isInClient =liff.isInClient();   //LINE内ブラウザで動作させているかどうか
            
-          var liff_isLoggedIn = liff.isLoggedIn();  //ログインしているかどうか
+          liff_isLoggedIn = liff.isLoggedIn();  //ログインしているかどうか
             
-          var liff_getAccessToken = liff.getAccessToken(); //アクセストークン
+          liff_getAccessToken = liff.getAccessToken(); //アクセストークン
             
-          var liff_getDecodedIDToken = JSON.stringify(liff.getDecodedIDToken());  // IDToken // I
+          liff_getDecodedIDToken = JSON.stringify(liff.getDecodedIDToken());  // IDToken // I
 
           liff.getProfile().then(function(profile) {
-              var liff_getProfile = JSON.stringify(profile);  // profile UserID と　名前
+              liff_getProfile = JSON.stringify(profile);  // profile UserID と　名前
             }).catch(function(error) {
                 document.getElementById('errlog').innerHTML = 'getProfile NG\n' + JSON.stringify(error);
             });
@@ -70,7 +76,7 @@
 
   <div class="page-header">
     <h3 id="errlog">test</h3>
-    <h3 id="datatest">data data222</h3>
+    <h3 id="datatest">data data333</h3>
     <h3>本日の商品（予約）
       <div style="float: right; cursor: pointer;">
         <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
