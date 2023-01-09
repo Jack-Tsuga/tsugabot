@@ -47,7 +47,7 @@
           liff_getDecodedIDToken = JSON.stringify(liff.getDecodedIDToken());  // IDToken // I
 
           liff.getProfile().then(function(profile) {
-              liff_getProfile = JSON.stringify(profile);  // profile UserID と　名前
+              //liff_getProfile = JSON.stringify(profile);  // profile UserID と　名前
               liff_getProfile = "profile test";
             }).catch(function(error) {
                 document.getElementById('errlog').innerHTML = 'getProfile NG\n' + JSON.stringify(error);
