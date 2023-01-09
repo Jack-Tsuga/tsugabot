@@ -31,7 +31,7 @@
     let liff_isLoggedIn;
     let liff_getAccessToken;
     let liff_getDecodedIDToken="";
-    let liff_getProfile="aaaa";
+   
 
     liff
       .init({
@@ -49,12 +49,13 @@
           liff_getDecodedIDToken = JSON.stringify(liff.getDecodedIDToken());  // IDToken // I
 
           liff.getProfile().then(function(profile) {
-              //liff_getProfile = JSON.stringify(profile);  // profile UserID と　名前
-              liff_getProfile = "profile test";
+              var liff_getProfile = JSON.stringify(profile);  // profile UserID と　名前
+              //liff_getProfile = "profile test";
+              document.getElementById('test').value = liff_getProfile;
             }).catch(function(error) {
                 document.getElementById('errlog').innerHTML = 'getProfile NG\n' + JSON.stringify(error);
             });
-
+          return "abc";
        // });
       })
       .catch((err) =>{
@@ -80,6 +81,7 @@
   <div class="page-header">
     <h3 id="errlog">test</h3>
     <h3 id="datatest">data data77777</h3>
+    <input id="test" name="tttt" type="text" value="data1">
     <h3>本日の商品（予約）
       <div style="float: right; cursor: pointer;">
         <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
