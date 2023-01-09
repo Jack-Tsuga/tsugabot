@@ -24,16 +24,16 @@
   </style>
 
 <script type="text/javascript">
-  var liff_isInClient;
-  var liff_isLoggedIn;
-  var liff_getAccessToken;
-  var liff_getDecodedIDToken="";
-  var liff_getProfile="aaaa";
+  let liff_isInClient;
+  let liff_isLoggedIn;
+  let liff_getAccessToken;
+  let liff_getDecodedIDToken="";
+  let liff_getProfile;
 
 	document.addEventListener("DOMContentLoaded", () => {
     liff
       .init({
-        liffId: '1654153400-yv5lR1Dax'
+        liffId: '1654153400-yv5lR1Da'
       })
       .then(() => {
       //  document.getElementById('go').addEventListener('click', () => {
