@@ -22,11 +22,52 @@
   }
  
   </style>
+
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", () => {
+    liff
+      .init({
+        liffId: '1654153400-yv5lR1Da'
+      })
+      .then(() => {
+      //  document.getElementById('go').addEventListener('click', () => {
+           
+          var liff_isInClient =liff.isInClient();   //LINE内ブラウザで動作させているかどうか
+           
+          var liff_isLoggedIn = liff.isLoggedIn();  //ログインしているかどうか
+            
+          var liff_getAccessToken = liff.getAccessToken(); //アクセストークン
+            
+          var liff_getDecodedIDToken = JSON.stringify(liff.getDecodedIDToken());  // IDToken // I
+
+          liff.getProfile().then(function(profile) {
+              var liff_getProfile = JSON.stringify(profile);  // profile UserID と　名前
+            }).catch(function(error) {
+                document.getElementById('errlog').value += 'getProfile NG\n' + JSON.stringify(error);
+            });
+
+      
+ 
+      //  });
+      })
+      .catch((err) =>{
+        document.getElementById('errlog').value = 'init NG\n' + err;
+      });
+      document.getElementById('errlog').value="init OK";
+  });
+
+</script>
+
+
+
+
+
 </head>
 
 <body class="container"style="max-width: inherit; width:80%">
 
   <div class="page-header">
+    <h3 id="errlog"></h3>
     <h3>本日の商品（予約）
       <div style="float: right; cursor: pointer;">
         <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
