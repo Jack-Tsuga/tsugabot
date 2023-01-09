@@ -24,7 +24,8 @@
   </style>
 
 <script type="text/javascript">
-	document.addEventListener("DOMContentLoaded", () => {
+//	document.addEventListener("DOMContentLoaded", () => {
+  function liff_Init(){
     liff
       .init({
         liffId: '1654153400-yv5lR1Da'
@@ -54,7 +55,8 @@
         document.getElementById('errlog').value = 'init NG\n' + err;
       });
       document.getElementById('errlog').value="init OK";
-  });
+  }
+  //});
 
 </script>
 
@@ -68,6 +70,9 @@
 
   <div class="page-header">
     <h3 id="errlog">test</h3>
+    <script type="text/javascript">
+      liff_Init();
+    </script>
     <h3>本日の商品（予約）
       <div style="float: right; cursor: pointer;">
         <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
