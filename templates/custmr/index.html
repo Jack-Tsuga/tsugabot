@@ -43,20 +43,20 @@
           liff.getProfile().then(function(profile) {
               var liff_getProfile = JSON.stringify(profile);  // profile UserID と　名前
             }).catch(function(error) {
-                document.getElementById('errlog').value += 'getProfile NG\n' + JSON.stringify(error);
+                document.getElementById('errlog').innerHTML = 'getProfile NG\n' + JSON.stringify(error);
             });
 
        // });
       })
       .catch((err) =>{
-        document.getElementById('errlog').value = 'init NG\n' + err;
+        document.getElementById('errlog').innerHTML = 'init NG\n' + err;
       });
       document.getElementById('errlog').innerHTML="init OK";
   
   });
   
      
-     document.getElementById('errlog').value="OK OK OK";
+     document.getElementById('datatest').innerHTML="OK OK OK";
      
 </script>
 
@@ -70,7 +70,7 @@
 
   <div class="page-header">
     <h3 id="errlog">test</h3>
- 
+    <h3 id="datatest">data data</h3>
     <h3>本日の商品（予約）
       <div style="float: right; cursor: pointer;">
         <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
