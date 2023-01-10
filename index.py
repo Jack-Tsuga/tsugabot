@@ -279,7 +279,7 @@ def read_db():
 	dsn = os.environ.get('DATABASE_URL')
 	conn = psycopg2.connect(dsn)
 	cur = conn.cursor()
-
+#
 # データを取得する
 	cur.execute('SELECT * FROM studenttbl')
 #レコード数を知る方法 これでよいのか？
