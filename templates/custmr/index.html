@@ -24,14 +24,14 @@
   </style>
 
 <script type="text/javascript">
- 
-
-	document.addEventListener("DOMContentLoaded", () => {
     let liff_isInClient;
     let liff_isLoggedIn;
     let liff_getAccessToken;
     let liff_getDecodedIDToken="";
-   
+
+	document.addEventListener("DOMContentLoaded", () => {
+ 
+    var result;
 
     liff
       .init({
@@ -55,14 +55,16 @@
             }).catch(function(error) {
                 document.getElementById('errlog').innerHTML = 'getProfile NG\n' + JSON.stringify(error);
             });
+          result= "test1";
           return "abc";
        // });
       })
       .catch((err) =>{
         document.getElementById('errlog').innerHTML = 'init NG\n' + err;
+        result= "testERR";
       });
       document.getElementById('errlog').innerHTML="init OK";
-      document.getElementById('datatest').innerHTML= liff_getProfile;
+      document.getElementById('datatest').innerHTML= result;
   });
   
      
