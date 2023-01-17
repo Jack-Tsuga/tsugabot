@@ -284,7 +284,7 @@
         $cartTable.append(
           '<tr style="color: blue">' +
           '<td></td>' +
-          '<td><strong>値引き後の金額AAAA</strong></td>' +
+          '<td><strong>値引き後の金額</strong></td>' +
           '<td></td>' +
           '<td></td>' +
           '<td class="text-right"><strong id="' + idDiscountPrice + '"></strong></td>' +
