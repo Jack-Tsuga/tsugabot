@@ -236,7 +236,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
         '<div class="modal-footer">' +
         '<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>' +
        // '<button type="button" class="btn btn-primary ' + classCheckoutCart + '">予約</button>' +
-        '<button type="button" class="btn btn-primary ' + classCheckoutCart + '">予約</button>' +
+        '<button type="button" class="btn btn-primary ' + classCheckoutCart + '">予約aa</button>' +
         '</div>' +
         '</form>'+
         '</div>' +
