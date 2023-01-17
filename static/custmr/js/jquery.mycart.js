@@ -1,11 +1,11 @@
 /*
- * jQuery myCart - v1.9 - 2020-12-03
+ * jQuery myCart - v1.9 - 2020-12-032022
  * http://asraf-uddin-ahmed.github.io/
  * Copyright (c) 2017 Asraf Uddin Ahmed; Licensed None
  * 
  * 2022-04-12 数量のスピンボタンをスマホ用にボタン要素を使うように修正（津金）
  */
-
+var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションのサーバーアドレス
 (function ($) {
 
   "use strict";
@@ -229,13 +229,16 @@
         '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
         '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span>予約カート</h4>' +
         '</div>' +
+        '<form method="get" action="'+SERVER_URL+'/custmr/rsv">'+
         '<div class="modal-body">' +
         '<table class="table table-hover table-responsive" id="' + idCartTable + '"></table>' +
         '</div>' +
         '<div class="modal-footer">' +
         '<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>' +
+       // '<button type="button" class="btn btn-primary ' + classCheckoutCart + '">予約</button>' +
         '<button type="button" class="btn btn-primary ' + classCheckoutCart + '">予約</button>' +
         '</div>' +
+        '</form>'+
         '</div>' +
         '</div>' +
         '</div>'
@@ -385,7 +388,7 @@
         $("#" + idEmptyCartMessage).fadeTo('fast', 0.5).fadeTo('fast', 1.0);
         return;
       }
-      updateCart();
+     // updateCart();
       var isCheckedOut = options.checkoutCart(ProductManager.getAllProducts(), ProductManager.getTotalPrice(), ProductManager.getTotalQuantity());
       if (isCheckedOut !== false) {
         ProductManager.clearProduct();

@@ -73,6 +73,11 @@ def custmr():
 
 	return render_template("/custmr/index.html",moji=moji)
 
+@app.route("/custmr/rsv")
+def rsv():
+	moji = u"こんにちは、ビ研です"
+	# 予約内容を保存する
+	return render_template("/custmr/rsv.html",moji=moji)
 
 @app.route("/auth")
 def auth():
