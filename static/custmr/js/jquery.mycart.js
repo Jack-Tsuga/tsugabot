@@ -236,7 +236,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
         '<div class="modal-footer">' +
         '<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>' +
        // '<button type="button" class="btn btn-primary ' + classCheckoutCart + '">予約</button>' +
-        '<button type="button" class="btn btn-primary ' + classCheckoutCart + '">予約cc</button>' +
+        '<button type="button" class="btn btn-primary ' + classCheckoutCart + '">予約dd</button>' +
         '</div>' +
         '</form>'+
         '</div>' +
@@ -383,7 +383,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
     });
 
     $(document).on('click', "." + classCheckoutCart, function () {
-      var products = ProductManager.getAllProducts();
+     // var products = ProductManager.getAllProducts();
       if (!products.length) {
         $("#" + idEmptyCartMessage).fadeTo('fast', 0.5).fadeTo('fast', 1.0);
         return;
