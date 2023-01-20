@@ -78,7 +78,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
     var getIndexOfProduct = function (id) {
       var productIndex = -1;
       var products = getAllProducts();
-      alert(products);
+
       $.each(products, function (index, value) {
         if (value.id == id) {
           productIndex = index;
@@ -89,6 +89,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
     };
     var setAllProducts = function (products) {
       localStorage[STORAGE_NAME] = JSON.stringify(products);
+      alert(localStorage[STORAGE_NAME]);
     };
     var addProduct = function (id, name, summary, price, quantity, image) {
       var products = getAllProducts();
@@ -393,7 +394,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
       updateCart();
       
       var isCheckedOut = options.checkoutCart(ProductManager.getAllProducts(), ProductManager.getTotalPrice(), ProductManager.getTotalQuantity());
-      alert( isCheckedOut);
+
       if (isCheckedOut !== false) {
         ProductManager.clearProduct();
         $cartBadge.text(ProductManager.getTotalQuantity());
