@@ -383,17 +383,17 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
     });
 
     $(document).on('click', "." + classCheckoutCart, function () {
-     // var products = ProductManager.getAllProducts();
+      var products = ProductManager.getAllProducts();
       if (!products.length) {
         $("#" + idEmptyCartMessage).fadeTo('fast', 0.5).fadeTo('fast', 1.0);
         return;
       }
-     // updateCart();
+      updateCart();
       var isCheckedOut = options.checkoutCart(ProductManager.getAllProducts(), ProductManager.getTotalPrice(), ProductManager.getTotalQuantity());
       if (isCheckedOut !== false) {
         ProductManager.clearProduct();
-     //   $cartBadge.text(ProductManager.getTotalQuantity());
-     //   $("#" + idCartModal).modal("hide");
+       // $cartBadge.text(ProductManager.getTotalQuantity());
+        $("#" + idCartModal).modal("hide");
       }
     });
 
