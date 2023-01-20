@@ -384,6 +384,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
 
     $(document).on('click', "." + classCheckoutCart, function () {
       var products = ProductManager.getAllProducts();
+      alert(products);
       if (!products.length) {
         $("#" + idEmptyCartMessage).fadeTo('fast', 0.5).fadeTo('fast', 1.0);
         return;
