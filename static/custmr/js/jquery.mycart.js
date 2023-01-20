@@ -78,6 +78,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
     var getIndexOfProduct = function (id) {
       var productIndex = -1;
       var products = getAllProducts();
+      alert(products);
       $.each(products, function (index, value) {
         if (value.id == id) {
           productIndex = index;
