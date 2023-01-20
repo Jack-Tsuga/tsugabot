@@ -392,7 +392,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
       var isCheckedOut = options.checkoutCart(ProductManager.getAllProducts(), ProductManager.getTotalPrice(), ProductManager.getTotalQuantity());
       if (isCheckedOut !== false) {
         ProductManager.clearProduct();
-       // $cartBadge.text(ProductManager.getTotalQuantity());
+        $cartBadge.text(ProductManager.getTotalQuantity());
         $("#" + idCartModal).modal("hide");
       }
     });
