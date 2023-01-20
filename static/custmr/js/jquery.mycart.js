@@ -89,7 +89,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
     };
     var setAllProducts = function (products) {
       localStorage[STORAGE_NAME] = JSON.stringify(products);
-      alert(localStorage[STORAGE_NAME]);
+
     };
     var addProduct = function (id, name, summary, price, quantity, image) {
       var products = getAllProducts();
