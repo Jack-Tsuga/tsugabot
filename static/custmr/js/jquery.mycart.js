@@ -392,7 +392,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
         return;
       }
       updateCart();
-      
+      alert("checkout");
       var isCheckedOut = options.checkoutCart(ProductManager.getAllProducts(), ProductManager.getTotalPrice(), ProductManager.getTotalQuantity());
 
       if (isCheckedOut !== false) {
@@ -415,8 +415,8 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
 
       ProductManager.setProduct(id, name, summary, price, quantity, image);
       $cartBadge.text(ProductManager.getTotalQuantity());
-
       options.afterAddOnCart(ProductManager.getAllProducts(), ProductManager.getTotalPrice(), ProductManager.getTotalQuantity());
+     
     });
 
   };
