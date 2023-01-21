@@ -78,9 +78,10 @@ def rsv():
 	moji = u"こんにちは、ビ研です"
 	quantity=[]
 	if request.method == 'GET':
-		quantity = request.args.get('quantity[]')
+		# quantity = request.args.get('quantity[]')
+		quantity = request.args.getlist('quantity')
 	elif request.method == 'POST':
-		quantity = request.form['quantity[]']
+		quantity = request.form.getlist('quantity')
 
 	
 	# 予約内容を保存する
