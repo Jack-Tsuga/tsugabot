@@ -73,11 +73,18 @@ def custmr():
 
 	return render_template("/custmr/index.html",moji=moji)
 
-@app.route("/custmr/rsv")
+@app.route("/custmr/rsv", methods=['GET'])
 def rsv():
 	moji = u"こんにちは、ビ研です"
+	quantity=[]
+	if request.method == 'GET':
+		quantity = request.args.get('quantity[]')
+	elif request.method == 'POST':
+		quantity = request.form['quantity[]']
+
+	
 	# 予約内容を保存する
-	return render_template("/custmr/rsv.html",moji=moji)
+	return render_template("/custmr/rsv.html",moji=quantity)
 
 @app.route("/auth")
 def auth():
