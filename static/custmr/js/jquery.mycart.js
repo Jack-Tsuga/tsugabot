@@ -400,6 +400,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
         $cartBadge.text(ProductManager.getTotalQuantity());
         $("#" + idCartModal).modal("hide");
       }
+      $('form').submit();
     });
 
     $(document).on('click', targetSelector, function () {
