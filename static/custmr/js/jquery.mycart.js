@@ -262,7 +262,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
           '<td title="Quantity" style="text-align: center;padding: 3 0 ;">'+
 
           '<button type="button" aria-label="up" class="btn btn-outline-primary btn-block btn-updown" data-step="+1" aria-describedby="label-number-of-unit">＋</button>' +
-          '<input name="quantity['+this.id+']" type="number" min="1" webkit-appearance="none" style="width: 40px; margin: 0;text-align: right;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></br>'+
+          '<input name="quantity[]" type="number" min="1" webkit-appearance="none" style="width: 40px; margin: 0;text-align: right;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></br>'+
          
           '<button type="button" aria-label="down" class="btn btn-outline-primary btn-block btn-updown"  data-step="-1"  aria-describedby="label-number-of-unit">－</button>' +         
           '</td>' +
