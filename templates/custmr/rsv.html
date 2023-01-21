@@ -73,30 +73,15 @@
 	</head>
 
 	<body>
-		<script>
-			document.write("{{ url_for('static', filename='style.css') }}");
-		</script>
-	<h1>ゼミのメンバー</h1>
+
+	<p>{{moji}}</p>
 	<div>
 	<h3>環境やトークルームの情報を取得</h3>
 	<input type="button" id="go" value="実行"/>
 	<textarea id="log" style="width:96%;height:350px;"></textarea>
 	</div>
 
-	<img src="/static/images/b-ken.png" style="width: 50px;height: 50px;"/>
-	<p>釜澤、<br/>若沢</p>
-	<h2>メッセージ：{{moji}}</h2>
-	<form action="/test" method="POST">
-
-		<input type="text" name="msg1" value="12">
-		<input type="text" name="msg2" value="23">
-  		<input type="submit" value="OK">
-	</form>
-
-	<h1>test database</h1>
-	<ul>
-		<li><a href="read_db">Read my database</a></li>
-		<li><a href="insert_db">Insert my database</a></li>
+	
 
 	</body>
 
