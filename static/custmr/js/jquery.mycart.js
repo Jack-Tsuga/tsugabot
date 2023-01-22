@@ -231,7 +231,7 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
         '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
         '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span>予約カート</h4>' +
         '</div>' +
-        '<form method="post" action="'+SERVER_URL+'/custmr/rsv">'+
+        '<form method="post" action="'+SERVER_URL+'/custmr/order">'+
         '<div class="modal-body">' +
         '<table class="table table-hover table-responsive" id="' + idCartTable + '"></table>' +
         '</div>' +
@@ -262,6 +262,9 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
           '<td title="Quantity" style="text-align: center;padding: 3 0 ;">'+
 
           '<button type="button" aria-label="up" class="btn btn-outline-primary btn-block btn-updown" data-step="+1" aria-describedby="label-number-of-unit">＋</button>' +
+          '<input name="item_id" type="hidden"  webkit-appearance="none"  class="' + classProductQuantity + '" value="' + this.id + '"/>'+
+          '<input name="item_name" type="hidden"  webkit-appearance="none"  class="' + classProductQuantity + '" value="' + this.name + '"/>'+
+          '<input name="price" type="hidden"  webkit-appearance="none"  class="' + classProductQuantity + '" value="' + this.price + '"/>'+
           '<input name="quantity" type="number" min="1" webkit-appearance="none" style="width: 40px; margin: 0;text-align: right;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></br>'+
          
           '<button type="button" aria-label="down" class="btn btn-outline-primary btn-block btn-updown"  data-step="-1"  aria-describedby="label-number-of-unit">－</button>' +         

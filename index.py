@@ -73,22 +73,50 @@ def custmr():
 
 	return render_template("/custmr/index.html",moji=moji)
 
-@app.route("/custmr/rsv", methods=['POST'])
-def rsv():
+@app.route("/custmr/order", methods=['POST'])
+def order():
 	data_text=""
-	quantity=[]
+	order_data = {}	# 予約(注文）商品のリスト
+	item_id =[]	# 商品番号
+	item_name=[]	# 商品名
+	price=[]	# 商品単価
+	quantity=[]	# 商品個数
+	total=[]	# 金額：商品毎の単価×数量＝金額
+	grand_total = 0 # 合計金額
+	order_number = 0 # 予約（注文）番号
+
 	if request.method == 'GET':
 		# quantity = request.args.get('quantity[]')
 		quantity = request.args.getlist('quantity')
 	elif request.method == 'POST':
+		item_id = request.form.getlist('item_id')
+		item_name= request.form.getlist('item_name')
+		price= request.form.getlist('price')
 		quantity = request.form.getlist('quantity')
+	
+	
+	grand_total = 0
+	for p , q in zip(price,quantity):
+		t = p * q	# 単価×数量＝合計金額
+		grand_total += t	# 総合計に加算
+		total.append(t)		# 商品毎の金額を配列に保存
 
-	for data in quantity:
-		data_text += data+","
+	# 注文内容をorder_data変数にまとめる
+	order_data ={'item_id': item_id , 'item_name':item_name, 'price': price , 'quatity': quantity , 'total' : total}	
+		
+	"""
+	# 注文内容をorder変数にまとめる
+	order.append(item_id)
+	order.append(item_name)
+	order.append(price)
+	order.append(quantity)
+	order.append(total)
+	"""
 
-	# 予約内容を保存する
-	# return render_template("/custmr/rsv.html",moji=data_text)
-	return render_template("/custmr/rsv.html",moji=data_text,data_quantity=quantity)
+
+
+	# 予約(注文）内容を保存する
+	return render_template("/custmr/order.html",order_numer=order_number,order_data=order_data,grand_total=grand_total)
 
 @app.route("/auth")
 def auth():
