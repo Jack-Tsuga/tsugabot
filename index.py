@@ -87,7 +87,8 @@ def rsv():
 		data_text += data+","
 
 	# 予約内容を保存する
-	return render_template("/custmr/rsv.html",moji=data_text,quantity=quantity)
+	return render_template("/custmr/rsv.html",moji=data_text)
+	# return render_template("/custmr/rsv.html",moji=data_text,quantity=quantity)
 
 @app.route("/auth")
 def auth():
