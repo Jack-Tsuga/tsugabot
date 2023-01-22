@@ -262,12 +262,11 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
           '<td title="Quantity" style="text-align: center;padding: 3 0 ;">'+
 
           '<button type="button" aria-label="up" class="btn btn-outline-primary btn-block btn-updown" data-step="+1" aria-describedby="label-number-of-unit">＋</button>' +
+          '<input name="quantity" type="number" min="1" webkit-appearance="none" style="width: 40px; margin: 0;text-align: right;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></br>'+        
+          '<button type="button" aria-label="down" class="btn btn-outline-primary btn-block btn-updown"  data-step="-1"  aria-describedby="label-number-of-unit">－</button>' +         
           '<input name="item_id" type="hidden"  webkit-appearance="none"  class="' +  '" value="' + this.id + '"/>'+
           '<input name="item_name" type="hidden"  webkit-appearance="none"  class="' + '" value="' + this.name + '"/>'+
           '<input name="price" type="hidden"  webkit-appearance="none"  class="' +  '" value="' + this.price + '"/>'+
-          '<input name="quantity" type="number" min="1" webkit-appearance="none" style="width: 40px; margin: 0;text-align: right;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></br>'+
-         
-          '<button type="button" aria-label="down" class="btn btn-outline-primary btn-block btn-updown"  data-step="-1"  aria-describedby="label-number-of-unit">－</button>' +         
           '</td>' +
           '<td title="Total" class="text-right ' + classProductTotal + '">' + options.currencySymbol + MathHelper.getRoundedNumber(total) + '</td>' +
           '<td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-xs btn-danger ' + classProductRemove + '">削除</a></td>' +
