@@ -97,7 +97,7 @@ def order():
 	
 	grand_total = 0
 	for p , q in zip(price,quantity):
-		t = p * q	# 単価×数量＝合計金額
+		t = int(p) * int(q)	# 単価×数量＝合計金額
 		grand_total += t	# 総合計に加算
 		total.append(t)		# 商品毎の金額を配列に保存
 
