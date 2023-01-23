@@ -264,8 +264,8 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
           '<button type="button" aria-label="up" class="btn btn-outline-primary btn-block btn-updown" data-step="+1" aria-describedby="label-number-of-unit">＋</button>' +
           '<input name="quantity" type="number" min="1" webkit-appearance="none" style="width: 40px; margin: 0;text-align: right;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></br>'+        
           '<button type="button" aria-label="down" class="btn btn-outline-primary btn-block btn-updown"  data-step="-1"  aria-describedby="label-number-of-unit">－</button>' +         
-          '<input name="item_id" type="hidden"  webkit-appearance="none"  class="' +  '" value="' + this.id + '"/>'+
-          '<input name="item_name" type="hidden"  webkit-appearance="none"  class="' + '" value="' + this.name + '"/>'+
+          '<input name="product_id" type="hidden"  webkit-appearance="none"  class="' +  '" value="' + this.id + '"/>'+
+          '<input name="product_name" type="hidden"  webkit-appearance="none"  class="' + '" value="' + this.name + '"/>'+
           '<input name="price" type="hidden"  webkit-appearance="none"  class="' +  '" value="' + this.price + '"/>'+
           '</td>' +
           '<td title="Total" class="text-right ' + classProductTotal + '">' + options.currencySymbol + MathHelper.getRoundedNumber(total) + '</td>' +
