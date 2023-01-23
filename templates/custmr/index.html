@@ -20,6 +20,9 @@
     position: fixed;
     z-index: 999;
   }
+  .col-xs-6{
+    margin-bottom: 10px;
+  }
  
   </style>
 
@@ -100,7 +103,7 @@
       product 1 - <strong>￥10</strong>
       <br>
       <button class="btn btn-danger my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="10" data-quantity="1" data-image="{{ url_for('static', filename='custmr/images/img_1.jpg') }}">カートに入れる</button>
-      <a href="#" class="btn btn-info">Details</a>
+      <a href="#" class="btn btn-info">商品説明</a>
     </div>
 
     <div class="col-xs-6 text-center">
@@ -109,7 +112,7 @@
       product 2 - <strong>￥20</strong>
       <br>
       <button class="btn btn-danger my-cart-btn" data-id="2" data-name="product 2" data-summary="summary 2" data-price="20" data-quantity="1" data-image="{{ url_for('static', filename='custmr/mages/img_2.jpg') }}">カートに入れる</button>
-      <a href="#" class="btn btn-info">Details</a>
+      <a href="#" class="btn btn-info">商品説明</a>
     </div>
 
     <div class="col-xs-6 text-center">
@@ -118,7 +121,7 @@
       product 3 - <strong>￥30</strong>
       <br>
       <button class="btn btn-danger my-cart-btn" data-id="3" data-name="product 3" data-summary="summary 3" data-price="30" data-quantity="1" data-image="{{ url_for('static', filename='custmr/images/img_3.jpg') }}">カートに入れる</button>
-      <a href="#" class="btn btn-info">Details</a>
+      <a href="#" class="btn btn-info">商品説明</a>
     </div>
 
     <div class="col-xs-6 text-center">
@@ -127,7 +130,7 @@
       product 4 - <strong>￥40</strong>
       <br>
       <button class="btn btn-danger my-cart-btn" data-id="4" data-name="product 4" data-summary="summary 4" data-price="40" data-quantity="1" data-image="{{ url_for('static', filename='custmr/images/img_4.jpg') }}" >カートに入れる</button>
-      <a href="#" class="btn btn-info">Details</a>
+      <a href="#" class="btn btn-info">商品説明</a>
     </div>
 
     <div class="col-xs-6 text-center">
@@ -136,7 +139,7 @@
       product 5 - <strong>￥50</strong>
       <br>
       <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="{{ url_for('static', filename='custmr/images/img_5.jpg') }}">カートに入れる</button>
-      <a href="#" class="btn btn-info">Details</a>
+      <a href="#" class="btn btn-info">商品説明</a>
     </div>
 
   </div>
@@ -202,7 +205,7 @@
     /*
     $("#addNewProduct").click(function(event) {
       var currentElementNo = $(".row").children().length + 1;
-      $(".row").append('<div class="col-xs-6 text-center"><img src=\'{{ url_for("static", filename="custmr/images/img_empty.png") }}\' width="150px" height="150px"><br>product ' + currentElementNo + ' - <strong>$' + currentElementNo + '</strong><br><button class="btn btn-danger my-cart-btn" data-id="' + currentElementNo + '" data-name="product ' + currentElementNo + '" data-summary="summary ' + currentElementNo + '" data-price="' + currentElementNo + '" data-quantity="1" data-image=\"{{ url_for("static", filename="custmr/images/img_empty.png") }}\">Add to Cart</button><a href="#" class="btn btn-info">Details</a></div>')
+      $(".row").append('<div class="col-xs-6 text-center"><img src=\'{{ url_for("static", filename="custmr/images/img_empty.png") }}\' width="150px" height="150px"><br>product ' + currentElementNo + ' - <strong>$' + currentElementNo + '</strong><br><button class="btn btn-danger my-cart-btn" data-id="' + currentElementNo + '" data-name="product ' + currentElementNo + '" data-summary="summary ' + currentElementNo + '" data-price="' + currentElementNo + '" data-quantity="1" data-image=\"{{ url_for("static", filename="custmr/images/img_empty.png") }}\">Add to Cart</button><a href="#" class="btn btn-info">商品説明</a></div>')
     });
     */
   });
