@@ -351,14 +351,14 @@ var SERVER_URL = "https://tsugabot.vercel.app" ; // アプリケーションの�
     $(document).on("click", ".btn-updown", function () {
       var price = $(this).closest("tr").data("price");  // 現状の価格を得る
       var id = $(this).closest("tr").data("id");        //　行の位置を得る
-      var quantity = parseInt($(this).closest('tr').find('input').val(),10);  // input 内のvalueの文字列を10進数として読み取る
+      var quantity = parseInt($(this).closest('tr').find('.'+classProductQuantity).val(),10);  // input 内のvalueの文字列を10進数として読み取る
       var step = parseInt($(this).data("step"),10);   // ボタンの＋、－で増減する値を読み込む
    
       quantity= quantity + step;  // 数量を増減する
       if(quantity < 1){   // 数量の加減を１とする
         quantity = 1;
       }
-      $(this).closest('tr').find('input').val(quantity);  // この行のinputタグを見つけ、そのvalueに新しい数量をセットする
+      $(this).closest('tr').find('.'+classProductQuantity).val(quantity);  // この行のinputタグを見つけ、そのvalueに新しい数量をセットする
       
       $(this).parent("td").next("." + classProductTotal).text(options.currencySymbol + MathHelper.getRoundedNumber(price * quantity));  //　単価×数量を計算し表示する
       ProductManager.updatePoduct(id, quantity);  // 最新データに更新する
