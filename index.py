@@ -258,8 +258,8 @@ def productlist():
 			{"id": 234,"image_b64data":image_b64data[11],"name": 'ショコラ', "yomi": "しょおこら", "shop": "和将ケーキ店", "price": "270", "stock": "40"},
 			{"id": 678,"image_b64data":image_b64data[12],"name": 'モンブラン', "yomi": "もんぶらん", "shop": "高丘菓子店", "price": "220", "stock": "23"}]
 
-	return "<h1> test </h1>"+','.join(files) 
-	#return render_template("/mngmt/productlist.html",products=items)
+	#return "<h1> test </h1>"+','.join(files) 
+	return render_template("/mngmt/productlist.html",products=items)
 
 @app.route("/mngmt/product_resp", methods=['POST'])
 def product_resp():
