@@ -228,7 +228,7 @@ def shop_resp():
 def productlist():
 	# テスト画像データ（本来は、データベースから読み込む
 	files = glob.glob("static/custmr/images/*.jpg")
-	
+	return "<h1> test </h1>"
 
 	image_b64data=[]	# テスト用画像配列
 
