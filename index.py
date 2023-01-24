@@ -231,7 +231,7 @@ def productlist():
 
 
 	image_b64data=[]	# テスト用画像配列
-	return "<h1> test </h1>"+files
+	return "<h1> test </h1>"+','.join(files) 
 	for i,file in enumerate(files):
 		img = Image.open(file)
 		buffer = BytesIO()
