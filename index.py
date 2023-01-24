@@ -231,7 +231,7 @@ def productlist():
 
 
 	image_b64data=[]	# テスト用画像配列
-
+	return "<h1> test </h1>"
 	for i,file in enumerate(files):
 		img = Image.open(file)
 		buffer = BytesIO()
@@ -241,7 +241,7 @@ def productlist():
 	# image要素のsrc属性に埋め込めこむために、適切に付帯情報を付与する
 		image_b64data.append("data:image/jpeg;base64,{}".format(image_b64str) )
 
-	return "<h1> test </h1>"
+
 
 	# テストデータ
 	items =[{"id": 101,"image_b64data":image_b64data[0],"name": '苺ショートケーキ', "yomi": "いちごしょーとけーき", "shop": "ケーキ屋アンナ", "price": "250", "stock": "50"},
