@@ -52,7 +52,7 @@
         <h4  class="list-group-item list-group-item-action active" >
           予約管理メニュー
         </h4>
-        <a href="/mngmt/rsvlist" class="list-group-item list-group-item-action" aria-current="true">予約一覧表示</a>
+        <a href="/mngmt/orderlist" class="list-group-item list-group-item-action" aria-current="true">予約一覧表示</a>
         <a href="#"  data-toggle="modal" data-target="#QRModal" class="list-group-item list-group-item-action">予約QRコード読み取り</a>
         <a href="/mngmt/itemlist" class="list-group-item list-group-item-action">商品登録、編集</a>
         <a href="/mngmt/shoplist" class="list-group-item list-group-item-action">お店情報編集</a>
@@ -67,10 +67,10 @@
               <h5 class="modal-title" id="QRModalLabel">QR予約番号読み取り</h5>
             </div>
             <div class="modal-body">
-              <form action="/mngmt/rsvdtl" method="get">
+              <form action="/mngmt/orderdtl" method="get">
                 <div class="mb-3">
                   <label for="QR-name" class="col-form-label">QRコードを読み込んでください:</label>
-                  <input type="tel" class="form-control" id="QR-name" name="rsvid"  value="" placeholder="QRコード">
+                  <input type="tel" class="form-control" id="QR-name" name="orderid"  value="" placeholder="QRコード">
                 </div>
 
                 <div class="modal-footer">

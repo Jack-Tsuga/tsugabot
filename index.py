@@ -123,18 +123,18 @@ def mngmt():
 
 	return render_template("/mngmt/index.html",moji=moji)
 
-@app.route("/mngmt/rsvlist")
-def rsvlist():
+@app.route("/mngmt/orderlist")
+def orderlist():
 	moji = u"こんにちは、ビ研です"
 
-	return render_template("/mngmt/rsvlist.html",moji=moji)
+	return render_template("/mngmt/orderlist.html",moji=moji)
 
-@app.route("/mngmt/rsvdtl", methods=['GET'])
-def rsvdtl():
+@app.route("/mngmt/orderdtl", methods=['GET'])
+def orderdtl():
 	if request.method == 'GET':
-		id = request.args.get('rsvid')
+		id = request.args.get('orderid')
 	elif request.method == 'POST':
-		id = request.form['rsvid']
+		id = request.form['orderid']
 
 
 	# テストデータ
@@ -151,17 +151,17 @@ def rsvdtl():
 		GrandTotal += int(item["total"])
 
 	name = "花子"
-	rsvdate = "2022/05/17 15:15"
+	orderdate = "2022/05/17 15:15"
 
-	return render_template("/mngmt/rsvdtl.html",rsvid=id,name=name,date=rsvdate,items=items,GrandTotal=GrandTotal)
+	return render_template("/mngmt/orderdtl.html",orderid=id,name=name,date=orderdate,products=items,GrandTotal=GrandTotal)
 
-@app.route("/mngmt/rsvdtl_resp", methods=['GET'])
-def rsvdtl_resp():
+@app.route("/mngmt/orderdtl_resp", methods=['GET'])
+def orderdtl_resp():
 	if request.method == 'GET':
-		id = request.args.get('rsvid')
+		id = request.args.get('orderid')
 		command = request.args.get('command')
 	elif request.method == 'POST':
-		id = request.form['rsvid']
+		id = request.form['orderid']
 		command = request.form['command']
 
 	if command == "1" :
@@ -175,9 +175,9 @@ def rsvdtl_resp():
 	
 
 	name = "花子"
-	rsvdate = "2022/05/17 15:15"
+	orderdate = "2022/05/17 15:15"
 
-	return render_template("/mngmt/rsvdtl_resp.html",rsvid=id,name=name,date=rsvdate,command=cmd)
+	return render_template("/mngmt/orderdtl_resp.html",orderid=id,name=name,date=orderdate,command=cmd)
 
 @app.route("/mngmt/shoplist")
 def shoplist():
@@ -220,12 +220,12 @@ def shop_resp():
 	
 	status = 0;	#　データベースアクセス結果の情報　
 	name = "花子"
-	rsvdate = "2022/05/17 15:15"
+	orderdate = "2022/05/17 15:15"
 
-	return render_template("/mngmt/shop_resp.html",rsvid=id,status=status)
+	return render_template("/mngmt/shop_resp.html",orderid=id,status=status)
 
-@app.route("/mngmt/itemlist")
-def itemlist():
+@app.route("/mngmt/productlist")
+def productlist():
 	# テスト画像データ（本来は、データベースから読み込む
 	files = glob.glob("static/custmr/images/*.jpg")
 	
@@ -259,10 +259,10 @@ def itemlist():
 			{"id": 678,"image_b64data":image_b64data[12],"name": 'モンブラン', "yomi": "もんぶらん", "shop": "高丘菓子店", "price": "220", "stock": "23"}]
 
 
-	return render_template("/mngmt/itemlist.html",items=items)
+	return render_template("/mngmt/productlist.html",products=items)
 
-@app.route("/mngmt/item_resp", methods=['POST'])
-def item_resp():
+@app.route("/mngmt/product_resp", methods=['POST'])
+def product_resp():
 	if request.method == 'GET':
 		id = request.args.get('id')
 		command = request.args.get('command')
@@ -283,7 +283,7 @@ def item_resp():
 	
 	status = 0;	#　データベースアクセス結果の情報　
 	name = "花子"
-	rsvdate = "2022/05/17 15:15"
+	orderdate = "2022/05/17 15:15"
  	# 画像書き込み用バッファを確保して画像データをそこに書き込む
 	#buf = BytesIO()
 	# image.save(buf,format="jpeg")
@@ -293,7 +293,7 @@ def item_resp():
 	
 	# image要素のsrc属性に埋め込めこむために、適切に付帯情報を付与する
 	image_b64data = "data:image/jpeg;base64,{}".format(image_b64str) 
-	return render_template("/mngmt/item_resp.html",rsvid=id,status=status,image_b64data=image_b64data)
+	return render_template("/mngmt/product_resp.html",orderid=id,status=status,image_b64data=image_b64data)
 
 
 @app.route("/test", methods=['POST'])
