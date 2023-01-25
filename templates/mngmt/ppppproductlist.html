@@ -78,26 +78,26 @@
         
         
         </script> <!-- 画像の保存先-->
-        {% set cnt = namespace(i = 1) %}   <!--一覧の番号初期化-->
-        {% for item in  items %}
+      <!--  {% set cnt = namespace(i = 1) %}   <!--一覧の番号初期化-->
+      <!--  {% for item in  items %}-->
         <div>
           <tr class="ShopData">
-            <td scope="row">{{ cnt.i }}</td> 
+         <!--     <td scope="row">{{ cnt.i }}</td> 
             <td>{{ item.id }}</td>    <!--商品ID-->
            <!--<td >{{ item.image_b64data}}</td>-->  <!--商品画像-->
             <script>
-            images[{{cnt.i}}-1] = "{{ item.image_b64data }}" ;
-            //imgaes.push("{{ item.name }}");//images.push(item.image_b64data);
+        //    images[{{cnt.i}}-1] = "{{ item.image_b64data }}" ;
+        //    imgaes.push("{{ item.name }}");//images.push(item.image_b64data);
             </script> <!--画像データをjavascriptの変数で保存-->
-            <td>{{ item.name }}</td>  <!--商品名-->
-            <td>{{ item.yomi}}</td>   <!--商品読み-->
-            <td>{{ item.shop}}</td>      <!--店舗名-->
-            <td>{{ item.price}}</td>   <!--単価-->
-            <td>{{ item.stock}}</td>   <!--在庫数-->
+         <!--   <td>{{ item.name }}</td>  <!--商品名-->
+         <!--   <td>{{ item.yomi}}</td>   <!--商品読み-->
+         <!--   <td>{{ item.shop}}</td>      <!--店舗名-->
+         <!--   <td>{{ item.price}}</td>   <!--単価-->
+         <!--   <td>{{ item.stock}}</td>   <!--在庫数-->
           </tr>
-          {% set cnt.i = cnt.i + 1 %}
+        <!-- {% set cnt.i = cnt.i + 1 %} --> 
         </div>
-      {% endfor %}
+       <!-- {% endfor %} -->
 
       </tbody>
       </table>
