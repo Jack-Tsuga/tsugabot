@@ -282,7 +282,7 @@ def product_resp():
 		cmd=-1
 	
 	status = 0;	#　データベースアクセス結果の情報　
-	name = "花子"
+	name = "フルーツケーキ"
 	orderdate = "2022/05/17 15:15"
  	# 画像書き込み用バッファを確保して画像データをそこに書き込む
 	#buf = BytesIO()
@@ -293,7 +293,7 @@ def product_resp():
 	
 	# image要素のsrc属性に埋め込めこむために、適切に付帯情報を付与する
 	image_b64data = "data:image/jpeg;base64,{}".format(image_b64str) 
-	return render_template("/mngmt/product_resp.html",orderid=id,status=status,image_b64data=image_b64data)
+	return render_template("/mngmt/product_resp.html",productid=id,status=status,image_b64data=image_b64data)
 
 
 @app.route("/test", methods=['POST'])
