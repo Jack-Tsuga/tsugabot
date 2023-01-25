@@ -74,7 +74,7 @@
       <tbody>
         <!--  // let items_js ={{ items | tojson }};  #jsの変数として再定義     -->
         <script type="text/javascript">
-          let images = [];
+          let images = [];  // 商品の画像を保存する配列
         
         
         
@@ -85,9 +85,9 @@
           <tr class="ShopData">
             <td scope="row">{{ cnt.i }}</td> 
             <td>{{ item.id }}</td>    <!--商品ID-->
-           <td >{{ item.image_b64data}}</td>  <!--商品画像-->
+           <!-- <td >{{ item.image_b64data}}</td> --> <!--商品画像 文字列-->
             <script>
-            images[{{cnt.i}}-1] = "{{ item.image_b64data }}" ;
+            images[{{cnt.i}}-1] = "{{ item.image_b64data }}" ;  // 商品の画像を配列に保存（formatterで表示）
             //imgaes.push("{{ item.name }}");//images.push(item.image_b64data);
             </script> <!--画像データをjavascriptの変数で保存-->
             <td>{{ item.name }}</td>  <!--商品名-->
