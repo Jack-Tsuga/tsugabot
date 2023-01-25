@@ -174,8 +174,8 @@
             "link": function(column, row)
             { // 店舗idの列を編集ダイアログ（モーダル）を起動するためのリンクを設定する。data-row-xxxxで行内の各データをクリックしたときに得られるようにセットしている
               //  return "<a  href='#' class='Edit ' data-row-id='" + row.id + "' data-row-name='" + row.name + "' data-row-yomi='" + row.yomi + "' data-row-staff='" + row.staff + "' data-row-tel='" + row.tel + "' ' >"  + row.id + "<img src='"+row.image+"' style='width:50px;margin-left:2px;float: right;' />"+ "</a>";
-              //  return "<a  href='#' class='Edit ' data-row-id='" + row.id + "' data-row-name='" + row.name + "' data-row-yomi='" + row.yomi + "' data-row-staff='" + row.staff + "' data-row-tel='" + row.tel + "' ' >"  + row.id + "<img src='"+images[row.i-1]+"' style='width:50px;margin-left:2px;float: right;' />"+ "</a>";
-              return "test";
+                return "<a  href='#' class='Edit ' data-row-id='" + row.id + "' data-row-name='" + row.name + "' data-row-yomi='" + row.yomi + "' data-row-staff='" + row.staff + "' data-row-tel='" + row.tel + "' ' >"  + row.id + "<img src='"+images[row.i-1]+"' style='width:50px;margin-left:2px;float: right;' />"+ "</a>";
+
             }
         }  
       }).on("loaded.rs.jquery.bootgrid", function() {
