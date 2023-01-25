@@ -293,7 +293,7 @@ def product_resp():
 	
 	# image要素のsrc属性に埋め込めこむために、適切に付帯情報を付与する
 	image_b64data = "data:image/jpeg;base64,{}".format(image_b64str) 
-	return render_template("/mngmt/product_resp.html",productid=id,name=name,image_b64data=image_b64data,date=date)
+	return render_template("/mngmt/product_resp.html",productid=id,name=name,image_b64data=image_b64data,date=date,command=command)
 
 
 @app.route("/test", methods=['POST'])
