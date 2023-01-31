@@ -1,0 +1,20 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script> 
+<script type="text/JavaScript"> 
+    $(function(){
+      var qrtext = "15";
+      var utf8qrtext = unescape(encodeURIComponent(qrtext));
+      $("#img-qr").html("");
+      $("#img-qr").qrcode({text:utf8qrtext}); 
+    });
+    </script>
+</head>
+<body>
+<p>予約が完了しました。</p>
+予約番号：<br>
+下記のQRコードをお店で提示してください。<br>
+<div id="img-qr"></div>
+</body>
+</html>
