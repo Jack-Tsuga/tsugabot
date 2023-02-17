@@ -40,11 +40,30 @@ app.config['JSON_AS_ASCII'] = False #jason dump defaultの英文字設定をや�
 LINE_CHANNEL_ACCESS_TOKEN = os.environ["LINE_CHANNEL_ACCESS_TOKEN"]
 # 環境変数からLINE Channel Secretを設定
 LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
+# 環境変数からDATABASE_URLを読み込む
+DATABASE_URL = os.environ.get('DATABASE_URL')
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handle = WebhookHandler(LINE_CHANNEL_SECRET)
 
-@app.route("/")
+# データベース読み込みクラス ---------------------
+class db_obj():
+  def __init__(self):
+    self.conn = psycopg2.connect(DATABASE_URL)	# データベース接続
+ 
+  def __enter__(self):
+    return self
+ 
+  def call(self, sql):	# sqlを実行
+    cur = self.conn.cursor()
+    cur.execute(sql)
+    return(cur.fetchall())
+ 
+  def __exit__(self, exception_type, exception_value, traceback):
+    self.conn.close()
+
+#----------------------------------------------
+
 def index():
 	moji = u"こんにちは、ビ研です"
 
@@ -313,6 +332,7 @@ def test():
 
 @app.route("/read_db")
 def read_db():
+	'''
 	dsn = os.environ.get('DATABASE_URL')
 	conn = psycopg2.connect(dsn)
 	cur = conn.cursor()
@@ -323,8 +343,10 @@ def read_db():
 	record_max = cur.rowcount
 #	c_one=cur.fetchone()
 	app.logger.debug(type(cur))
-	
-	res = {}
+	'''
+	sql = 'SELECT * FROM studenttbl'
+	conn = db_obj()
+	cur = conn.call(sql)
 #	msg = c_one[2]
 	msg = ""
 	for i in cur:
