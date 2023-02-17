@@ -63,7 +63,7 @@ class db_obj():
     self.conn.close()
 
 #----------------------------------------------
-
+@app.route("/")
 def index():
 	moji = u"こんにちは、ビ研です"
 
