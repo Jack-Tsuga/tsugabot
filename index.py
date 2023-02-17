@@ -57,7 +57,7 @@ class db_obj():
   def call(self, sql):	# sqlを実行
     cur = self.conn.cursor()
     cur.execute(sql)
-    return(cur.fetchall())
+    return(cur.fetchall())	# 結果を返す
  
   def __exit__(self, exception_type, exception_value, traceback):
     self.conn.close()
@@ -332,26 +332,16 @@ def test():
 
 @app.route("/read_db")
 def read_db():
-	'''
-	dsn = os.environ.get('DATABASE_URL')
-	conn = psycopg2.connect(dsn)
-	cur = conn.cursor()
-#
-# データを取得する
-	cur.execute('SELECT * FROM studenttbl')
-#レコード数を知る方法 これでよいのか？
-	record_max = cur.rowcount
-#	c_one=cur.fetchone()
-	app.logger.debug(type(cur))
-	'''
-	sql = 'SELECT * FROM studenttbl'
-	conn = db_obj()
-	cur = conn.call(sql)
-#	msg = c_one[2]
-	msg = ""
-	for row in cur:
 
-		msg = msg + "<tr><td>"+str(row[0])+"</td><td>"+row[1]+"</td></tr>"
+	sql = 'SELECT * FROM studenttbl'
+	# conn = db_obj()
+	with db_obj() as conn :
+		cur = conn.call(sql)
+
+		msg = ""
+		for row in cur:
+
+			msg = msg + "<tr><td>"+str(row[0])+"</td><td>"+row[1]+"</td></tr>"
 
 	kotae = msg
 	return render_template("testdb.html",kotae=kotae)
