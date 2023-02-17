@@ -349,9 +349,9 @@ def read_db():
 	cur = conn.call(sql)
 #	msg = c_one[2]
 	msg = ""
-	for i in cur:
+	for row in cur:
 
-		msg = msg + "<tr><td>"+str(i[0])+"</td><td>"+i[1]+"</td></tr>"
+		msg = msg + "<tr><td>"+str(row[0])+"</td><td>"+row[1]+"</td></tr>"
 
 	kotae = msg
 	return render_template("testdb.html",kotae=kotae)
