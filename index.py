@@ -202,24 +202,7 @@ def orderdtl_resp():
 @app.route("/mngmt/shoplist")
 def shoplist():
 	
-		# テストデータ
-	shops =[{"id": 101, "name": 'ケーキ屋アンナ', "yomi": "けーきやあんな", "staff": "山下", "tel": "0138-22-1234"},
-			{"id": 201, "name": '函大ケーキ', "yomi": "かんだいけーき", "staff": "津金", "tel": "0138-22-1234"},
-			{"id": 112, "name": '高丘菓子店', "yomi": "たかおかかしてん", "staff": "長南", "tel": "0138-22-1234"},
-			{"id": 3, "name": '洋菓子戸倉', "yomi": "ようがしとくら", "staff": "柏崎", "tel": "0138-22-1234"},
-			{"id": 434, "name": '洋菓子花子', "yomi": "ようがしはなこ", "staff": "野村", "tel": "0138-22-1234"},
-			{"id": 214, "name": '湯の川洋菓子', "yomi": "ゆのかわようがし", "staff": "木村", "tel": "0138-22-1234"},
-			{"id": 334, "name": '洋菓子香雪', "yomi": "ようがしこうせつ", "staff": "五十嵐", "tel": "0138-22-1234"},
-			{"id": 123, "name": '榎本菓子', "yomi": "えのもとかし", "staff": "類家", "tel": "0138-22-1234"},
-			{"id": 234, "name": '滝沢洋菓子店', "yomi": "たきざわようがしてん", "staff": "渡辺", "tel": "0138-22-1234"},
-			{"id": 234, "name": '上湯の川和菓子', "yomi": "かみゆのかわわがし", "staff": "井上", "tel": "0138-22-1234"},
-			{"id": 234, "name": '美鈴ケーキ', "yomi": "みすずけーき", "staff": "阿部", "tel": "0138-22-1234"},
-			{"id": 234, "name": 'セラーム菓子店', "yomi": "せらーむかしてん", "staff": "浜田", "tel": "0138-22-1234"},
-			{"id": 678, "name": '和将ケーキ店', "yomi": "かずまさけーきてん", "staff": "高橋", "tel": "0138-22-1234"}]
-	list="<table style='border: 1px;'>"
-	for shop in shops:
-		list += "<tr><td>"+str(shop['id'])+"</td><td>"+shop['name']+"</td><td>"+shop['yomi']+"</td><td>"+shop['staff']+"</td><td>"+shop['tel']+"</td></tr>"
-	list += "</table>"
+
 	
 	sql = 'SELECT * FROM shops'
 
@@ -233,7 +216,7 @@ def shoplist():
 		'''
 
 
-	return render_template("/mngmt/shoplist.html",shops=shops,list=list)
+	return render_template("/mngmt/shoplist.html",shops=shops)
 
 @app.route("/mngmt/shop_resp", methods=['GET'])
 def shop_resp():
