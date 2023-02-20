@@ -27,7 +27,7 @@ from flask_sqlalchemy import SQLAlchemy
 import glob # テストデータ用
 
 import os
-import psycopg2
+from psycopg2.extras import psycopg2,DictCursor
 #import sys
 import json
 
@@ -56,7 +56,8 @@ class db_obj():
     return self
  
   def call(self, sql):	# sqlを実行
-    cur = self.conn.cursor()
+    cur = self.conn.cursor(cursor_factory=DictCursor)
+    
     cur.execute(sql)
     return(cur.fetchall())	# 結果を返す
  
