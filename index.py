@@ -215,6 +215,16 @@ def shoplist():
 			{"id": 234, "name": '美鈴ケーキ', "yomi": "みすずけーき", "staff": "阿部", "tel": "0138-22-1234"},
 			{"id": 234, "name": 'セラーム菓子店', "yomi": "せらーむかしてん", "staff": "浜田", "tel": "0138-22-1234"},
 			{"id": 678, "name": '和将ケーキ店', "yomi": "かずまさけーきてん", "staff": "高橋", "tel": "0138-22-1234"}]
+	sql = 'SELECT * FROM shops'
+
+	with db_obj() as conn :
+		cur = conn.call(sql)
+		shops=cur
+		'''
+		for row in cur:
+
+			msg = msg + "<tr><td>"+str(row[0])+"</td><td>"+row[1]+"</td></tr>"
+		'''
 
 
 	return render_template("/mngmt/shoplist.html",shops=shops)
