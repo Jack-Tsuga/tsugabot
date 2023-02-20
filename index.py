@@ -218,9 +218,10 @@ def shoplist():
 			{"id": 678, "name": '和将ケーキ店', "yomi": "かずまさけーきてん", "staff": "高橋", "tel": "0138-22-1234"}]
 	list="<table style='border: 1px;'>"
 	for shop in shops:
-		list += "<tr><td>"+shop['id']+"</td><td>"+shop['name']+"</td><td>"+shop['yomi']+"</td><td>"+shop['address']+"</td><td>"+shop['image']+"</td><td>"+shop['staff']+"</td><td>"+shop['tel']+"</td><td>"+shop['email']+"</td></tr>"
+		list += "<tr><td>"+str(shop['id'])+"</td><td>"+shop['name']+"</td><td>"+shop['yomi']+"</td><td>"+shop['address']+"</td><td>"+shop['image']+"</td><td>"+shop['staff']+"</td><td>"+shop['tel']+"</td><td>"+shop['email']+"</td></tr>"
 	list += "</table>"
-	sql = 'SELECT * FROM shops'
+	s
+	ql = 'SELECT * FROM shops'
 
 	with db_obj() as conn :
 		cur = conn.call(sql)
