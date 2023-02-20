@@ -56,7 +56,7 @@ class db_obj():
     return self
  
   def call(self, sql):	# sqlを実行
-    cur = self.conn.cursor(cursor_factory=DictCursor)
+    cur = self.conn.cursor(cursor_factory=DictCursor)	# DictCursor: 辞書型でデータを返す
     
     cur.execute(sql)
     return(cur.fetchall())	# 結果を返す
