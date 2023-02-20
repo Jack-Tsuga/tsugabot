@@ -1,6 +1,7 @@
 # coding=utf-8
 # インポートするライブラリ
 from datetime import datetime
+
 from flask import Flask, request, abort, render_template, g,jsonify
 
 from linebot import (
@@ -28,7 +29,7 @@ import glob # テストデータ用
 import os
 import psycopg2
 #import sys
-#import json
+import json
 
 
 # 軽量なウェブアプリケーションフレームワーク:Flask
@@ -215,6 +216,7 @@ def shoplist():
 			{"id": 234, "name": '美鈴ケーキ', "yomi": "みすずけーき", "staff": "阿部", "tel": "0138-22-1234"},
 			{"id": 234, "name": 'セラーム菓子店', "yomi": "せらーむかしてん", "staff": "浜田", "tel": "0138-22-1234"},
 			{"id": 678, "name": '和将ケーキ店', "yomi": "かずまさけーきてん", "staff": "高橋", "tel": "0138-22-1234"}]
+	list = json.dumps(shops)
 	sql = 'SELECT * FROM shops'
 
 	with db_obj() as conn :
@@ -227,7 +229,7 @@ def shoplist():
 		'''
 
 
-	return render_template("/mngmt/shoplist.html",shops=shops)
+	return render_template("/mngmt/shoplist.html",shops=shops,list=list)
 
 @app.route("/mngmt/shop_resp", methods=['GET'])
 def shop_resp():
