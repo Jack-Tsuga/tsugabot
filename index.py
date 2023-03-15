@@ -203,10 +203,6 @@ def orderdtl_resp():
 @app.route("/mngmt/shoplist")
 def shoplist():
 	
-
-	
-	
-	
 	SQL = 'SELECT * FROM shops order by "id" '		# 店の全リストを選択
 
 	with db_obj() as conn :
@@ -216,7 +212,7 @@ def shoplist():
 
 	return render_template("/mngmt/shoplist.html",shops=shops)
 
-@app.route("/mngmt/shop_resp", methods=['GET'])
+@app.route("/mngmt/shop_resp", methods=['post'])
 def shop_resp():
 	command = "0"	# コマンドを初期化
 	id = -1 	# 主キー（店番号を初期化）
@@ -226,10 +222,19 @@ def shop_resp():
 	elif request.method == 'POST':
 		id = request.form['id']
 		command = request.form['command']
+		name = request.form['name']
+		yomi = request.form['yomi']
+		staff = request.form['staff']
+		tel = request.form['tel']
 
 	if command == "1" :
 		# 新規登録データベース処理
-		cmd=1
+		SQL = 'INSERT INTO "shops" ("name","yomi","staff","tel") VALUES ('+name+','+yomi+','+staff+','+tel+'); '		# 店の全リストを選択
+
+		with db_obj() as conn :
+			cur = conn.call(SQL)
+			
+
 	elif command == "2" :
 		# のデータベース処理
 		cmd=2
@@ -243,7 +248,7 @@ def shop_resp():
 	name = "花子"
 	orderdate = "2022/05/17 15:15"
 
-	return render_template("/mngmt/shop_resp.html",orderid=id,status=status)
+	return render_template("/mngmt/shop_resp.html",shopid=id,status=status)
 
 @app.route("/mngmt/productlist")
 def productlist():
