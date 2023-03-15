@@ -229,7 +229,7 @@ def shop_resp():
 
 	if command == "1" :
 		# 新規登録データベース処理
-		SQL = 'INSERT INTO "shops" ("name","yomi","staff","tel") VALUES ('+name+','+yomi+','+staff+','+tel+'); '		# 店の全リストを選択
+		SQL = 'INSERT INTO "shops" ("name","yomi","staff","tel","address","image","email") VALUES ('+name+','+yomi+','+staff+','+tel+',"","",""); '		# 店の全リストを選択
 
 		with db_obj() as conn :
 			cur = conn.call(SQL)
