@@ -205,22 +205,21 @@ def shoplist():
 	
 
 	
-	sql = 'SELECT * FROM shops'
+	
+	
+	SQL = 'SELECT * FROM shops order by "id" '		# 店の全リストを選択
 
 	with db_obj() as conn :
-		cur = conn.call(sql)
+		cur = conn.call(SQL)
 		shops=cur
-		'''
-		for row in cur:
-
-			msg = msg + "<tr><td>"+str(row[0])+"</td><td>"+row[1]+"</td></tr>"
-		'''
 
 
 	return render_template("/mngmt/shoplist.html",shops=shops)
 
 @app.route("/mngmt/shop_resp", methods=['GET'])
 def shop_resp():
+	command = "0"	# コマンドを初期化
+	id = -1 	# 主キー（店番号を初期化）
 	if request.method == 'GET':
 		id = request.args.get('id')
 		command = request.args.get('command')
@@ -229,10 +228,13 @@ def shop_resp():
 		command = request.form['command']
 
 	if command == "1" :
-		# 引渡し済みのデータベース処理
+		# 新規登録データベース処理
 		cmd=1
 	elif command == "2" :
-		# 予約取り消しのデータベース処理
+		# のデータベース処理
+		cmd=2
+	elif command == "99" :
+		# のデータベース処理
 		cmd=2
 	else:
 		cmd=-1
