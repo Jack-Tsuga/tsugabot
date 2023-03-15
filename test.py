@@ -40,7 +40,7 @@ from PIL import Image
 #from werkzeug import ImmutableDict
 
 
-#from flask_sqlalchemy import SQLAlchemy
+#from flask                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             _sqlalchemy import SQLAlchemy
 import sqlalchemy     # salalchemy 小文字じゃないとエラー
 
 def jls_extract_def():
