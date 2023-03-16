@@ -55,12 +55,18 @@ class db_obj():
   def __enter__(self):
     return self
  
-  def call(self, sql):	# sqlを実行
+  def call_select(self, sql):	# sqlを実行
     cur = self.conn.cursor(cursor_factory=DictCursor)	# DictCursor: 辞書型でデータを返す
     
     cur.execute(sql)
     return(cur.fetchall())	# 結果を返す
- 
+  
+  def call_any(self, sql):	# sqlを実行
+    cur = self.conn.cursor()
+    cur.execute(sql)
+    return(cur)	# 結果を返す
+
+   
   def __exit__(self, exception_type, exception_value, traceback):
     self.conn.close()
 
@@ -206,7 +212,7 @@ def shoplist():
 	SQL = 'SELECT * FROM shops order by "id" '		# 店の全リストを選択
 
 	with db_obj() as conn :
-		cur = conn.call(SQL)
+		cur = conn.call_select(SQL)
 		shops=cur
 
 
@@ -232,7 +238,7 @@ def shop_resp():
 		SQL = "INSERT INTO shops (name,yomi,staff,tel) VALUES ('"+name+"','"+yomi+"','"+staff+"','"+tel+"');"	# 店の全リストを選択
 
 		with db_obj() as conn :
-			cur = conn.call(SQL)
+			cur = conn.call_any(SQL)
 			
 
 	elif command == "2" :
