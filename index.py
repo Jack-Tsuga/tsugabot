@@ -239,7 +239,7 @@ def shop_resp():
 
 		with db_obj() as conn :
 			cur = conn.call_any(SQL)
-			id = cur.execute("select lastval() from shops")
+		#	id = cur.execute("select lastval() from shops")
 			
 
 	elif command == "2" :
