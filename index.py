@@ -262,7 +262,7 @@ def shop_resp():
 	name = "花子"
 	orderdate = "2022/05/17 15:15"
 
-	return render_template("/mngmt/shop_resp.html",shopid=id,status=status)
+	return render_template("/mngmt/shop_resp.html",shopid=id,shopname=name,status=status)
 
 @app.route("/mngmt/productlist")
 def productlist():
