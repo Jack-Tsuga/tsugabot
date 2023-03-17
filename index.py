@@ -245,7 +245,8 @@ def shop_resp():
 
 		with db_obj() as conn :
 			cur = conn.call_insert(SQL)
-		#	id = cur.execute("select lastval() from shops")
+			cur.execute("select lastval() from shops")
+			id = cur.fetchone()[0]
 			
 
 	elif command == "2" :
