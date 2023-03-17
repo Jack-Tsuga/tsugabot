@@ -61,9 +61,10 @@ class db_obj():
     cur.execute(sql)
     return(cur.fetchall())	# 結果を返す
   
-  def call_any(self, sql):	# sqlを実行
+  def call_insert(self, sql):	# sqlを実行
     cur = self.conn.cursor()
     cur.execute(sql)
+    self.conn.commit()
     return(cur)	# 結果を返す
 
    
