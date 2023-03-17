@@ -259,7 +259,7 @@ def shop_resp():
 		cmd=-1
 	
 	status = 0;	#　データベースアクセス結果の情報　
-	name = "花子"
+
 	orderdate = "2022/05/17 15:15"
 
 	return render_template("/mngmt/shop_resp.html",shopid=id,shopname=name,status=status)
