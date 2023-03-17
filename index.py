@@ -66,7 +66,12 @@ class db_obj():
     cur.execute(sql)
     self.conn.commit()
     return(cur)	# 結果を返す
-
+  
+  def call_update(self, sql):	# sqlを実行
+    cur = self.conn.cursor()
+    cur.execute(sql)
+    self.conn.commit()
+    return(cur)	# 結果を返す
    
   def __exit__(self, exception_type, exception_value, traceback):
     self.conn.close()
@@ -239,7 +244,7 @@ def shop_resp():
 		SQL = "INSERT INTO shops (name,yomi,staff,tel) VALUES ('"+name+"','"+yomi+"','"+staff+"','"+tel+"');"	# 店の全リストを選択
 
 		with db_obj() as conn :
-			cur = conn.call_any(SQL)
+			cur = conn.call_insert(SQL)
 		#	id = cur.execute("select lastval() from shops")
 			
 
